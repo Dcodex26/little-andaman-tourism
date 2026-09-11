@@ -1,0 +1,1310 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>White Surf Waterfall | Little Andaman</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7fbfc;
+            color: #17324d;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            height: 75px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #087f8c;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #f5a623;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #17324d;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #087f8c;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .detail-hero {
+            height: 78vh;
+            min-height: 560px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            margin-top: 75px;
+        }
+
+        .detail-hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            left: 0;
+            top: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                rgba(8, 55, 70, 0.40),
+                rgba(8, 55, 70, 0.80)
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            width: 90%;
+            max-width: 900px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: #f7c873;
+        }
+
+        .hero-content h1 {
+            font-size: 68px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #f7c873;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            max-width: 720px;
+            margin: auto;
+            color: #f5f5f5;
+        }
+
+
+        /* =========================
+           QUICK INFORMATION
+        ========================= */
+
+        .quick-info-wrapper {
+            position: relative;
+            margin-top: -65px;
+            z-index: 10;
+            padding: 0 7%;
+        }
+
+        .quick-info {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            overflow: hidden;
+        }
+
+        .info-box {
+            padding: 28px 22px;
+            text-align: center;
+            border-right: 1px solid #e7eeee;
+        }
+
+        .info-box:last-child {
+            border-right: none;
+        }
+
+        .info-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .info-box h4 {
+            color: #087f8c;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin-bottom: 5px;
+        }
+
+        .info-box p {
+            font-size: 15px;
+            font-weight: 600;
+            color: #17324d;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .content-section {
+            padding: 100px 7% 70px;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: #087f8c;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            color: #17324d;
+            margin-bottom: 20px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: #526779;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .side-card {
+            background: #eaf7f8;
+            padding: 32px;
+            border-radius: 20px;
+            border-left: 5px solid #087f8c;
+        }
+
+        .side-card h3 {
+            color: #087f8c;
+            margin-bottom: 20px;
+            font-size: 23px;
+        }
+
+        .side-list {
+            list-style: none;
+        }
+
+        .side-list li {
+            padding: 11px 0;
+            border-bottom: 1px solid rgba(8, 127, 140, 0.15);
+            color: #40586c;
+        }
+
+        .side-list li:last-child {
+            border-bottom: none;
+        }
+
+        .side-list strong {
+            color: #17324d;
+        }
+
+
+        /* =========================
+           WHY VISIT
+        ========================= */
+
+        .why-section {
+            background: #eaf7f8;
+            padding: 90px 7%;
+        }
+
+        .center-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .center-heading p {
+            color: #607584;
+            font-size: 17px;
+        }
+
+        .feature-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px 28px;
+            border-radius: 18px;
+            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .feature-number {
+            font-size: 16px;
+            font-weight: bold;
+            color: #f5a623;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+            color: #17324d;
+        }
+
+        .feature-card p {
+            color: #637685;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           HOW TO REACH
+        ========================= */
+
+        .reach-section {
+            padding: 90px 7%;
+            background: white;
+        }
+
+        .reach-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .reach-box {
+            background: #f7fbfc;
+            border-radius: 22px;
+            padding: 45px;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 25px;
+            align-items: start;
+            border: 1px solid #e2eeee;
+        }
+
+        .reach-icon {
+            width: 65px;
+            height: 65px;
+            background: #087f8c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .reach-box h3 {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .reach-box p {
+            color: #607584;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           PLAN YOUR VISIT
+        ========================= */
+
+        .plan-section {
+            padding: 90px 7%;
+            background: #f7fbfc;
+        }
+
+        .plan-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .plan-text p {
+            color: #607584;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            margin: 13px 0;
+            color: #40586c;
+            font-size: 16px;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: #087f8c;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 38px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        }
+
+        .plan-card h3 {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #087f8c;
+        }
+
+        .plan-card p {
+            color: #607584;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery-section {
+            padding: 90px 7%;
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .gallery-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .gallery-heading p {
+            color: #607584;
+            font-size: 16px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 18px;
+            height: 320px;
+        }
+
+        .gallery-item.large {
+            height: 420px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta-section {
+            padding: 90px 7%;
+            background: linear-gradient(135deg, #075d68, #087f8c);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            font-size: 17px;
+            color: #e7f7f8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f5a623;
+            color: #17324d;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: #f7c873;
+        }
+
+
+        /* =========================
+           BACK LINK
+        ========================= */
+
+        .back-section {
+            text-align: center;
+            padding: 35px 7%;
+            background: white;
+        }
+
+        .back-link {
+            color: #087f8c;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            color: #f5a623;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #102a43;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer h3 {
+            color: #f7c873;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            color: #b9c9d6;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 52px;
+            }
+
+            .quick-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-box:nth-child(2) {
+                border-right: none;
+            }
+
+            .about-grid,
+            .plan-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item,
+            .gallery-item.large {
+                height: 350px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .detail-hero {
+                min-height: 500px;
+            }
+
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .quick-info-wrapper {
+                padding: 0 5%;
+            }
+
+            .quick-info {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .info-box {
+                padding: 22px 12px;
+            }
+
+            .content-section,
+            .why-section,
+            .reach-section,
+            .plan-section,
+            .gallery-section,
+            .cta-section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reach-box {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+
+            .cta-section h2 {
+                font-size: 32px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <a href="/" class="logo">
+            Little <span>Andaman</span>
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/#sightseeing">Sightseeing</a>
+            </li>
+
+            <li>
+                <a href="/#why-us">Why Us</a>
+            </li>
+
+            <li>
+                <a href="/#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="detail-hero">
+
+        <img
+            src="{% static 'andamanweb/images/white_surf_1.jpg' %}"
+            alt="White Surf Waterfall, Little Andaman"
+        >
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <div class="breadcrumb">
+
+                <a href="/">Home</a>
+
+                &nbsp; / &nbsp;
+
+                <a href="/#sightseeing">Sightseeing</a>
+
+                &nbsp; / &nbsp;
+
+                White Surf Waterfall
+
+            </div>
+
+            <h1>
+                White Surf <span>Waterfall</span>
+            </h1>
+
+            <p>
+                A refreshing natural attraction in Little Andaman,
+                surrounded by greenery and the peaceful beauty of the island.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUICK INFORMATION
+    ========================= -->
+
+    <section class="quick-info-wrapper">
+
+        <div class="quick-info">
+
+
+            <div class="info-box">
+
+                <div class="info-icon">
+                    📍
+                </div>
+
+                <h4>
+                    Location
+                </h4>
+
+                <p>
+                    Little Andaman
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-icon">
+                    💧
+                </div>
+
+                <h4>
+                    Experience
+                </h4>
+
+                <p>
+                    Waterfall & Nature
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-icon">
+                    ⏱️
+                </div>
+
+                <h4>
+                    Suggested Stay
+                </h4>
+
+                <p>
+                    A Few Hours
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-icon">
+                    🌿
+                </div>
+
+                <h4>
+                    Ideal For
+                </h4>
+
+                <p>
+                    Nature & Photography
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT WHITE SURF
+    ========================= -->
+
+    <section class="content-section">
+
+        <div class="content-container">
+
+            <div class="about-grid">
+
+
+                <div class="about-text">
+
+                    <div class="section-label">
+                        Discover White Surf
+                    </div>
+
+                    <h2 class="section-title">
+                        A Refreshing Escape Into Nature
+                    </h2>
+
+                    <p>
+                        White Surf Waterfall is one of the natural
+                        attractions that visitors can explore while
+                        discovering Little Andaman. Surrounded by
+                        greenery, the waterfall provides a refreshing
+                        change from the island's coastal destinations.
+                    </p>
+
+                    <p>
+                        The sound and movement of flowing water combined
+                        with the surrounding natural landscape create a
+                        peaceful environment for visitors who enjoy
+                        spending time close to nature.
+                    </p>
+
+                    <p>
+                        A visit to White Surf Waterfall also adds variety
+                        to a Little Andaman sightseeing plan, allowing
+                        travellers to experience more than just the
+                        island's beaches and coastline.
+                    </p>
+
+                </div>
+
+
+                <div class="side-card">
+
+                    <h3>
+                        At a Glance
+                    </h3>
+
+                    <ul class="side-list">
+
+                        <li>
+                            <strong>Destination:</strong>
+                            White Surf Waterfall
+                        </li>
+
+                        <li>
+                            <strong>Island:</strong>
+                            Little Andaman
+                        </li>
+
+                        <li>
+                            <strong>Type:</strong>
+                            Waterfall & Nature
+                        </li>
+
+                        <li>
+                            <strong>Ideal For:</strong>
+                            Nature & Photography
+                        </li>
+
+                        <li>
+                            <strong>Atmosphere:</strong>
+                            Fresh & Peaceful
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHY VISIT
+    ========================= -->
+
+    <section class="why-section">
+
+
+        <div class="center-heading">
+
+            <div class="section-label">
+                Why Visit
+            </div>
+
+            <h2 class="section-title">
+                Why Explore White Surf Waterfall?
+            </h2>
+
+            <p>
+                Experience a different side of Little Andaman by
+                exploring its natural freshwater landscape.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    01
+                </div>
+
+                <h3>
+                    Natural Beauty
+                </h3>
+
+                <p>
+                    Enjoy the surrounding greenery and the natural
+                    landscape around the waterfall.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    02
+                </div>
+
+                <h3>
+                    Peaceful Environment
+                </h3>
+
+                <p>
+                    Spend time away from busy surroundings and
+                    appreciate the calm atmosphere of nature.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    03
+                </div>
+
+                <h3>
+                    Scenic Photography
+                </h3>
+
+                <p>
+                    Capture the waterfall, greenery and surrounding
+                    natural scenery during your visit.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW TO REACH
+    ========================= -->
+
+    <section class="reach-section">
+
+        <div class="reach-container">
+
+            <div class="section-label">
+                Getting There
+            </div>
+
+            <h2 class="section-title">
+                How to Reach White Surf Waterfall
+            </h2>
+
+
+            <div class="reach-box">
+
+
+                <div class="reach-icon">
+                    🚗
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Local Travel
+                    </h3>
+
+                    <p>
+                        Visitors staying in Little Andaman can arrange
+                        local transportation to explore White Surf
+                        Waterfall along with the other sightseeing
+                        destinations on the island.
+                    </p>
+
+                    <p style="margin-top: 12px;">
+                        Local travel conditions and access can vary,
+                        especially depending on weather. Visitors should
+                        confirm current conditions and the local route
+                        before beginning their journey.
+                    </p>
+
+                    <p style="margin-top: 12px;">
+                        Accommodation providers or local guides can
+                        help visitors plan transportation and include
+                        White Surf Waterfall in their sightseeing schedule.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PLAN YOUR VISIT
+    ========================= -->
+
+    <section class="plan-section">
+
+        <div class="plan-container">
+
+            <div class="plan-grid">
+
+
+                <div class="plan-text">
+
+                    <div class="section-label">
+                        Travel Tips
+                    </div>
+
+                    <h2 class="section-title">
+                        Plan Your Visit
+                    </h2>
+
+                    <p>
+                        A little preparation can make your visit to
+                        White Surf Waterfall more comfortable and safe.
+                    </p>
+
+
+                    <ul class="check-list">
+
+                        <li>
+                            Carry sufficient drinking water.
+                        </li>
+
+                        <li>
+                            Wear comfortable footwear.
+                        </li>
+
+                        <li>
+                            Be careful on wet or slippery surfaces.
+                        </li>
+
+                        <li>
+                            Check local weather conditions before travelling.
+                        </li>
+
+                        <li>
+                            Avoid disturbing the surrounding natural area.
+                        </li>
+
+                        <li>
+                            Keep the waterfall and surroundings clean.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="plan-card">
+
+                    <h3>
+                        💧 Enjoy the Natural Escape
+                    </h3>
+
+                    <p>
+                        <strong>Explore:</strong>
+                        Take time to appreciate the waterfall and
+                        surrounding greenery.
+                    </p>
+
+                    <p>
+                        <strong>Relax:</strong>
+                        Enjoy the refreshing atmosphere and peaceful
+                        natural surroundings.
+                    </p>
+
+                    <p>
+                        <strong>Capture:</strong>
+                        Photograph the waterfall and surrounding
+                        landscape.
+                    </p>
+
+                    <p>
+                        <strong>Continue:</strong>
+                        Combine White Surf Waterfall with the other
+                        sightseeing destinations of Little Andaman.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GALLERY
+    ========================= -->
+
+    <section class="gallery-section">
+
+        <div class="gallery-container">
+
+
+            <div class="gallery-heading">
+
+                <div class="section-label">
+                    Gallery
+                </div>
+
+                <h2 class="section-title">
+                    White Surf Waterfall
+                </h2>
+
+                <p>
+                    A glimpse of the natural beauty of White Surf Waterfall.
+                </p>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+
+                <div class="gallery-item large">
+
+                    <img
+                        src="{% static 'andamanweb/images/white_surf_1.jpg' %}"
+                        alt="White Surf Waterfall"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="{% static 'andamanweb/images/white_surf_1.jpg' %}"
+                        alt="White Surf Waterfall landscape"
+                    >
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="cta-section" id="contact">
+
+        <h2>
+            Ready to Explore White Surf?
+        </h2>
+
+        <p>
+            Discover the natural beauty of White Surf Waterfall and
+            continue exploring the unique attractions of Little Andaman.
+        </p>
+
+        <a href="/" class="cta-button">
+            Explore Little Andaman
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         BACK TO HOME
+    ========================= -->
+
+    <section class="back-section">
+
+        <a href="/" class="back-link">
+            ← Back to Little Andaman Sightseeing
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <h3>
+            Little Andaman
+        </h3>
+
+        <p>
+            Discover the beauty, nature and experiences of Little Andaman.
+        </p>
+
+        <p style="margin-top: 10px;">
+            © 2026 Little Andaman Tourism. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
