@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-change-this-later'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['little-andaman-tourism.onrender.com']
 
 
 # Application definition
@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'andamanweb',
+    
 ]
 
 
